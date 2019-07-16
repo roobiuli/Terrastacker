@@ -1,5 +1,5 @@
 resource "docker_image" "LocalStack" {
-  name = "localstack:latest"
+  name = "localstack/localstack"
 }
 
 // resrouce "docker_volume" "DataHolder" {
