@@ -1,5 +1,5 @@
 variable "services" {
-    type = "list"
+    type = "string"
 }
 
 variable "data_directory" {
