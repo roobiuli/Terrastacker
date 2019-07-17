@@ -10,7 +10,7 @@ resource "docker_container" "LocalStackContainer" {
   image = "${docker_image.LocalStack.latest}"
   name  = "localstackcontainer"
 
-  env = ["SERVICES=${var.services}", "ports=4567-4584:4567-4584", "DATA_DIR=${var.data_directory}", "PORT_WEB_UI=8080", "LAMBDA_EXECUTOR=docker", "DOCKER_HOST=unix:///var/run/docker.sock" ]
+  env = ["SERVICES=${split(",", var.services)}", "ports=4567-4584:4567-4584", "DATA_DIR=${var.data_directory}", "PORT_WEB_UI=8080", "LAMBDA_EXECUTOR=docker", "DOCKER_HOST=unix:///var/run/docker.sock" ]
   
   volumes {
       //volume_name = "${docker_volume.DataHolder.name}"
