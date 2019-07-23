@@ -7,7 +7,7 @@ resource "docker_image" "LocalStack" {
  data "null_data_source" "matches" {
    count = "${length(var.services)}"
    inputs = {
-     value = "${lookup(var.service_ports, lower(replace(element(var.services, count.index), " ", "_")))}" 
+     value = "${lookup(var.service_ports, lower(element(var.services, count.index)))}" 
    }
  }
 

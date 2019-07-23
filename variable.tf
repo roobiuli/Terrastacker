@@ -29,11 +29,11 @@ variable "volume_host_path" {
 variable "service_ports" {
     type = "map"
 default = {
-api_gateway = 4567
+apigateway = 4567
 kinesis = 4568
 s3 = 4572
 dynamodb = 4569
-dynamodb_streams = 4570
+dynamodbstreams = 4570
 elasticsearch = 4571
 firehose = 4573
 lambda = 4574
