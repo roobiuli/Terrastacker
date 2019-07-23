@@ -6,6 +6,7 @@ Module for terraform to spin up a localstack container with default ports from l
 
 #### Requiremnets
 ---
+0. Terraform version 0.12.x 
 1. In order to function one should a working docker host (works on localhost)
 2. Terraform Docker provider v 2.0
 3. make
@@ -89,12 +90,6 @@ List s3 buckets
 aws --endpoint-url=http://localhost:4572 s3 ls
 2019-07-22 17:45:09 my-bucket
 ```
-
-
-#### Known issues 
-Currently Terraform docker provider does not support dynamic cration of Ports block for docker_container resource thus the localstack default ports for services are hardcoded
-
-https://github.com/terraform-providers/terraform-provider-docker/issues/166
 
 
 #### To be added
