@@ -1,6 +1,6 @@
 resource "docker_image" "LocalStack" {
   name = "localstack/localstack"
-  keep_locally = false
+  keep_locally = true
 }
 
  // Making list of maches 
@@ -16,7 +16,7 @@ resource "docker_container" "LocalStackContainer" {
   image = "${docker_image.LocalStack.latest}"
   name  = "localstackcontainer"
 
-  env = ["SERVICES=${lower(join(",",formatlist("%s", var.services)))}", "DATA_DIR=${var.data_directory}", "PORT_WEB_UI=8080", "LAMBDA_EXECUTOR=docker", "DOCKER_HOST=unix:///var/run/docker.sock" ]
+  env = ["SERVICES=${lower(join(",",formatlist("%s", var.services)))}", "DATA_DIR=${var.data_directory}", "PORT_WEB_UI=8080", "LAMBDA_EXECUTOR=docker", "DOCKER_HOST=unix:///var/run/docker.sock", "DEBUG=1" ]
 
   volumes {
       container_path = "${var.volume_container_path}"
